@@ -1,9 +1,11 @@
+import ProjectsSidebar from "./components/ProjectsSidebar.jsx";
+import NewProject from "./components/NewProject.jsx";
+
 export default function App() {
   return (
-    <>
-      <p class="bg-linear-to-r from-pink-500 to-violet-500 bg-clip-text text-5xl font-extrabold text-transparent">
-        Hello world
-      </p>
-    </>
+    <main className="h-screen my-8 flex gap-8 ">
+      <ProjectsSidebar />
+      <NewProject />
+    </main>
   );
 }
