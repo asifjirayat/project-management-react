@@ -12,12 +12,17 @@ export default function ProjectsSidebar({
         Your Projects
       </h2>
       <div>
-        <Button onClick={onStartAddProject}>+ Add Project</Button>
+        <Button
+          className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100 cursor-pointer"
+          onClick={onStartAddProject}
+        >
+          + Add Project
+        </Button>
       </div>
       <ul className="mt-8">
         {projects.map((project) => {
           let cssClasses =
-            "w-full text-left px-2 py-1 rounded my-1 hover:text-stone-200 hover:bg-stone-800";
+            "w-full text-left px-2 py-1 rounded my-1 hover:text-stone-200 hover:bg-stone-800 cursor-pointer";
 
           if (project.id === selectedProjectId) {
             cssClasses += " bg-stone-800 text-stone-200";

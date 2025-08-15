@@ -16,7 +16,12 @@ export default function NoProjectSelected({ onStartAddProject }) {
         Select a project or get started with a new one
       </p>
       <p className="mt-8">
-        <Button onClick={onStartAddProject}>Create a New Project</Button>
+        <Button
+          className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100 cursor-pointer"
+          onClick={onStartAddProject}
+        >
+          Create a New Project
+        </Button>
       </p>
     </div>
   );
