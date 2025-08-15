@@ -9,8 +9,35 @@ export default function App() {
   const [projectsState, setProjectsState] = useState({
     selectedProjectId: undefined,
     projects: [],
+    tasks: [],
   });
 
+  // Function to add a task
+  function handleAddTask(text) {
+    setProjectsState((prevState) => {
+      const newTask = {
+        text: text,
+        projectId: prevState.selectedProjectId,
+        id: Math.random(),
+      };
+      return {
+        ...prevState,
+        tasks: [newTask, ...prevState.tasks],
+      };
+    });
+  }
+
+  // Function to delete a task
+  function handleDeleteTask(id) {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.id !== id),
+      };
+    });
+  }
+
+  // Function to select a project
   function handleSelectProject(id) {
     setProjectsState((prevState) => {
       return {
@@ -20,6 +47,7 @@ export default function App() {
     });
   }
 
+  // Function to start adding a new project
   function handleStartAddProject() {
     setProjectsState((prevState) => {
       return {
@@ -29,6 +57,7 @@ export default function App() {
     });
   }
 
+  // Function to cancel adding new project
   function handleCancelAddProject() {
     setProjectsState((prevState) => {
       return {
@@ -38,6 +67,7 @@ export default function App() {
     });
   }
 
+  // Function to add a new project
   function handleAddProject(projectData) {
     setProjectsState((prevState) => {
       const newProject = {
@@ -52,6 +82,7 @@ export default function App() {
     });
   }
 
+  // Function to delete a project
   function handleDeleteProject() {
     setProjectsState((prevState) => {
       return {
@@ -64,12 +95,19 @@ export default function App() {
     });
   }
 
+  // Get the selected project
   const selectedProject = projectsState.projects.find(
     (project) => project.id === projectsState.selectedProjectId
   );
 
   let content = (
-    <SelectedProject project={selectedProject} onDelete={handleDeleteProject} />
+    <SelectedProject
+      project={selectedProject}
+      onDelete={handleDeleteProject}
+      onAddTask={handleAddTask}
+      onDeleteTask={handleDeleteTask}
+      tasks={projectsState.tasks}
+    />
   );
 
   if (projectsState.selectedProjectId === null) {
@@ -86,6 +124,7 @@ export default function App() {
         onStartAddProject={handleStartAddProject}
         projects={projectsState.projects}
         onSelectProject={handleSelectProject}
+        selectedProjectId={projectsState.selectedProjectId}
       />
       {content}
     </main>
