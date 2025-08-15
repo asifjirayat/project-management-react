@@ -1,12 +1,25 @@
-# React + Vite
+# Project Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple project management tool built with React and Vite.
+It demonstrates key React concepts such as prop drilling, state management, useRef, forwardRef, and useImperativeHandle.
 
-Currently, two official plugins are available:
+# Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Add Projects:** Create a new project using the project form.
+- **Project Sidebar:** Successfully added projects appear in the sidebar.
+- **Select Project:** View project details and manage related tasks.
+- **Add Tasks:** Add tasks to a selected project.
+- **Clear Tasks:** Remove all tasks for a project in one click.
+- **Delete Project:** Remove a project from the sidebar.
 
-## Expanding the ESLint configuration
+# Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** (with Vite for fast development)
+- **Tailwind CSS** for styling
+
+# How to Run
+
+```bash
+npm install
+npm run dev
+```
